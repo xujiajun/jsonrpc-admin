@@ -1,99 +1,145 @@
-<html>
-<head>
-  <style type="text/css">{{ debugCss() }} </style>
-  <script type="text/javascript">{{ debugScript() }} </script>
-  <style type="text/css">
-    body {
-        margin:0px;
-        color: #525252;
-    }
-    * {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-    }
-    #container {
-        display: flex;
-        width: 100%;
-        height: 100%;
-        background-color: #f1f2f4;
-    }
 
-    .content {
-        margin: auto;
-    }
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
 
-    .content h1 {
-        font-size: 65px;
-        font-weight: 200;
-        -webkit-font-smoothing: antialiased;
-    }
+    <title>Tast JSONRPC Console</title>
 
-    .content p {
-        -webkit-font-smoothing: antialiased;
-        color: #aeaeae;
-        margin-bottom: 58px;
-        letter-spacing: -.02em;
-        text-transform: uppercase;
-    }
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
-    .btn {
-        display: inline-block;
-        padding: 6px 12px;
-        margin-bottom: 0;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 1.42857143;
-        text-align: center;
-        white-space: nowrap;
-        vertical-align: middle;
-        -ms-touch-action: manipulation;
-        touch-action: manipulation;
-        cursor: pointer;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        background-image: none;
-        border: 1px solid transparent;
-        border-radius: 4px;
-    }
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+   <link rel="stylesheet" type="text/css" href="http://v3.bootcss.com/assets/js/ie10-viewport-bug-workaround.js">
+   <link rel="stylesheet" type="text/css" href="http://v3.bootcss.com/examples/dashboard/dashboard.css">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
-    .btn-default {
-        color: #333;
-        background-color: #fff;
-        border-color: #ccc;
-    }
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
 
-    .content a {
-            text-decoration: none;
-            text-align: center;
-    }
+  <body>
 
-    .btn .btn-getting-started {
-        color: #efbfbf;
-    border: none;
-    box-shadow: inset 0 0 0 2px #efbfbf;
-    border-radius: 2px;
-    background-color: transparent;
-    margin-top: 26px;
-    }
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Tast JSONRPC Admin Center</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </nav>
 
-    .btn-lg {
-        padding: 10px 16px;
-    font-size: 18px;
-    line-height: 1.3333333;
-    border-radius: 6px;
-   }
-  </style>
-</head>
-<body>
-<div id="container">
-    <div class="content">
-        <h1>Hello,TastPHP :)</h1>
-        <p>The PHP Framework for the modern developer.</p>
-        <div style="text-align:center"><a class="btn btn-lg btn-default btn-getting-started" href="https://docs.tastphp.com/" role="button" target="__blank">Get Started</a></div>
+    <div class="container-fluid">
+      <div class="row">
+<!--         <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Reports</a></li>
+            <li><a href="#">Analytics</a></li>
+            <li><a href="#">Export</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="">Nav item</a></li>
+            <li><a href="">Nav item again</a></li>
+            <li><a href="">One more nav</a></li>
+            <li><a href="">Another nav item</a></li>
+            <li><a href="">More navigation</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="">Nav item again</a></li>
+            <li><a href="">One more nav</a></li>
+            <li><a href="">Another nav item</a></li>
+          </ul>
+        </div> -->
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">RPC Console</h1>
+
+          <div>
+            
+          <a class="btn btn-default" href="/"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></a>
+            
+          </div>
+
+          <!-- <h2 class="sub-header">Section title</h2> -->
+          <div class="table-responsive">
+            <table class="table  table-hover table-striped" style="margin-bottom: 220px;">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>ip:port</th>
+                  <th>service name</th>
+                  <th>weight</th>
+                  <th>status</th>
+                  <th>operate</th>
+                </tr>
+              </thead>
+              <tbody>
+            {% set num = 1 %}
+              {% for key,value in data %}
+                <tr>
+                  <td>{{ num }}</td>
+                  <td>{{ key }}</td>
+                  <td>{{ value.serviceName }}</td>
+                  <td>{{ value.weight }}</td>
+                  <td>{% if value.status == 1 %}<span class="label label-success">running</span>{% else %}<span class="label label-danger">stopped</span>{% endif %}</td>
+                  <td>
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Status <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">stop</a></li>
+                        <li><a href="#">start</a></li>
+                      </ul>
+                    </div>
+
+                     <button type="submit" class="btn btn-default">modify weight</button>
+                  </td>
+                </tr>
+                {% set num = num+1 %}
+               {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
-   {{ debug() }} 
-</body>
 
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="http://v3.bootcss.com/assets/js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="http://v3.bootcss.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
 </html>
