@@ -1,2 +1,2 @@
-# jsonrpc-admin
-jsonrpc admin web ui
+# tast-jsonrpc-admin
+tast-jsonrpc admin web ui
