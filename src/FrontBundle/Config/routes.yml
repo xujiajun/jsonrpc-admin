@@ -4,3 +4,10 @@ home:
         _controller: Front@Home::index
         methods:  [GET]
         routeName: home
+modify_weight:
+      pattern: /modify/weight
+      parameters:
+        _controller: Front@Home::modifyWeight
+        methods:  [POST]
+        routeName: modify_weight
+        csrf: false
